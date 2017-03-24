@@ -162,7 +162,7 @@ describe('Joyride', () => {
       expect(wrapper.instance().joyride.props.stepIndex).toBe(5);
       const el = wrapper.find('.joyride-tooltip').render().children();
       expect(el.css('top')).toEqual('-15px');
-      expect(el.css('left')).toEqual('287px');
+      expect(el.css('left')).toEqual('15px');
     });
 
     it('should be able to close the 6th step tooltip', () => {
