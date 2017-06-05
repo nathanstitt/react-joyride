@@ -1206,7 +1206,7 @@ class Joyride extends React.Component {
         }
       }
 
-      let stepProps = {
+      const stepProps = {
         allowClicksThruHole,
         animate: xPos > -1 && !shouldRedraw,
         buttons,
@@ -1227,7 +1227,7 @@ class Joyride extends React.Component {
       };
 
       if (currentStep.element) {
-        component = React.cloneElement(currentStep.element, stepProps)
+        component = React.cloneElement(currentStep.element, stepProps);
       } else {
         component = React.createElement(Tooltip, stepProps);
       }
