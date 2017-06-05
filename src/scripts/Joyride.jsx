@@ -1206,7 +1206,7 @@ class Joyride extends React.Component {
         }
       }
 
-      component = React.createElement(Tooltip, {
+      let stepProps = {
         allowClicksThruHole,
         animate: xPos > -1 && !shouldRedraw,
         buttons,
@@ -1224,7 +1224,13 @@ class Joyride extends React.Component {
         yPos,
         onClick: this.onClickTooltip,
         onRender: this.onRenderTooltip
-      });
+      };
+
+      if (currentStep.element) {
+        component = React.cloneElement(currentStep.element, stepProps)
+      } else {
+        component = React.createElement(Tooltip, stepProps);
+      }
     }
     else {
       component = React.createElement(Beacon, {
