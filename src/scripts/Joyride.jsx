@@ -1277,4 +1277,6 @@ class Joyride extends React.Component {
   }
 }
 
+export { Beacon, Tooltip };
+
 export default Joyride;
