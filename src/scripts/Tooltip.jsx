@@ -400,6 +400,10 @@ export default class JoyrideTooltip extends React.Component {
       opts.classes.push('joyride-tooltip--animate');
     }
 
+    if (props.className) {
+      opts.classes.push(props.className);
+    }
+
     return opts;
   }
 
