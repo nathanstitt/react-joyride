@@ -119,6 +119,21 @@ export function sanitizeSelector(selector) {
   return selector;
 }
 
+export function getBodyScrollTop() {
+  return (
+    document.documentElement &&
+    document.documentElement.scrollTop
+  ) || document.body.scrollTop;
+}
+
+export function getElementScrollTop(element) {
+  if (element === document.body) {
+    return getBodyScrollTop();
+  }
+
+  return element.scrollTop;
+}
+
 /**
  * Find the bounding client rect
  *
@@ -135,7 +150,7 @@ export function getOffsetBoundingClientRect(element, offsetParent) {
   let y = 0;
   while (elem && !isNaN(elem.offsetLeft) && !isNaN(elem.offsetTop)) {
     x += elem.offsetLeft - elem.scrollLeft;
-    y += elem.offsetTop - elem.scrollTop;
+    y += elem.offsetTop - getElementScrollTop(elem);
     if (elem === offsetParent) {
       break;
     }

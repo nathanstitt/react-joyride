@@ -2,7 +2,7 @@ import React from 'react';
 import scroll from 'scroll';
 import autobind from 'react-autobind';
 import nested from 'nested-property';
-import { getRootEl, getOffsetBoundingClientRect, logger, sanitizeSelector, getDocHeight } from 'scripts/utils';
+import { getRootEl, getOffsetBoundingClientRect, logger, sanitizeSelector, getDocHeight, getBodyScrollTop } from 'scripts/utils';
 
 import Beacon from 'scripts/Beacon';
 import Tooltip from 'scripts/Tooltip';
@@ -1059,10 +1059,10 @@ class Joyride extends React.Component {
       position = 'bottom';
     }
 
-    if (/^top/.test(position) && (rect.top + body.scrollTop) - (height + tooltipOffset) < 0) {
+    if (/^top/.test(position) && (rect.top + getBodyScrollTop()) - (height + tooltipOffset) < 0) {
       position = 'bottom';
     }
-    else if (/^bottom/.test(position) && (rect.bottom + body.scrollTop) + (height + tooltipOffset) > getDocHeight()) {
+    else if (/^bottom/.test(position) && (rect.bottom + getBodyScrollTop()) + (height + tooltipOffset) > getDocHeight()) {
       position = 'top';
     }
 
