@@ -1,5 +1,5 @@
 $joyride-color: #f04 !default;
-$joyride-zindex: 1500 !default;
+$joyride-zindex: 1025 !default;
 $joyride-overlay-color: rgba(#000, 0.5) !default;
 
 $joyride-beacon-color: $joyride-color !default;
@@ -146,7 +146,7 @@ $joyride-tooltip-arrow-scale: ($joyride-tooltip-arrow-size / ($joyride-tooltip-a
     pointer-events: auto;
     transform: translate3d(0, 0, 0);
     width: nth($joyride-tooltip-width, 1);
-    z-index: $joyride-zindex + 10;
+    z-index: $joyride-zindex + 1;
 
     &--animate {
       animation: $joyride-tooltip-animation;
